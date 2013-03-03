@@ -69,6 +69,10 @@ namespace GroupChatBot
 				} else if (input == "quit") {
 
 					keeprunning = false;
+					foreach (SteamBot bot in bots)
+					{
+						bot.KillBot();
+					}
 				}
 
 

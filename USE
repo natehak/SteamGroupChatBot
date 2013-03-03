@@ -1,0 +1,32 @@
+USE
+
+The Steam Group Chat Bot acts a lot like a simple version of IRC. If you're familiar with
+IRC you'll feel right at home.
+
+Connecting to the bot
+----------------------
+Simply send the bot a friend request. If the bot's friends list is full, the bot owner
+will normally launch another instance of the bot and you can add the alternate bot to your
+friends list. The bot will instantly add you back.
+
+You will be dropped into the partyline channel. This channel is where everyone goes on
+first connect. To talk to people in the channel, just message the bot, your message will
+get relayed to everyone on the channel.
+
+To see who's on the channel type "/status" (minus the quotes). You'll get a list of 
+everyone on the channel.
+
+If the spam on the channel gets to be too much, type "/off". You will be put "offline". If
+you're ready to get messages again, just type "/on".
+
+To see a list of available channels, just type "/list".
+
+To join one of the channels, type "/join channelname" (replacing channelname with the name
+of the channel you want to join.
+
+If you're the bot admin type "/g message goes here" (replacing message goes here with a 
+message) to broadcast a message to everybody connected to the bot.
+
+If you want a list of commands, just type "/help".
+
+Good luck!

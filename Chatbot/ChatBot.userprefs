@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatBot/Main.cs">
+    <Files>
+      <File FileName="ChatBot/Main.cs" Line="33" Column="4" />
+      <File FileName="ChatBot/Chatter.cs" Line="21" Column="59" />
+      <File FileName="ChatBot/SteamBot.cs" Line="171" Column="5" />
+      <File FileName="Disassembly" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

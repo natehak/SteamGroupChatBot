@@ -1,0 +1,40 @@
+SETUP
+
+Prerequisites
+-------------
+You're going to need the .NET framework or Mono. Personally, I have only tested with Mono
+so your milage may vary.
+
+1. If you're just concerned about deploying all the files you need are going to be in
+the bin/Release folder. Everything else is just source code that you don't really need.
+
+2. Edit the channels.cfg file and the settings.cfg files. Instructions will be inside the
+files.
+
+3. Run the executable. I would suggest running it inside a screen session so that you can
+log off if you're running the bot on a VPS or remote server.
+
+4. You will be presented with the bot console. Start by launching a Steam instance by
+typing "addbot" (minus the quotes).
+
+5. You will be prompted for a Steam username and password. This account will be controlled
+by the framework. Unfortunately, you will want to turn off Steam Guard, otherwise the bot
+will be unable to login.
+
+6. Add the bot to your friends list, if everything was successful, the bot should accept
+your request and you will be able to relay messages!
+
+Bot console commands
+---------------------
+
+- addbot | Adds another Steam instance. If one bot's Steam account's friends list fills up
+you can add another Steam account to be controlled.
+
+- killbot | Let's you kill a Steam instance that is acting up.
+
+- global <text to broadcast> | Broadcasts a message to every user connected to the bots.
+
+- quit | Ends the bot. You should always quit the bot with this command.
+
+That's it! If you need any help feel free to contact me. You can find my contact info in
+the README file.

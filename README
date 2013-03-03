@@ -1,0 +1,36 @@
+Steam Group Chat Bot
+---------------------
+
+By Nathan Hakkakzadeh (or DrKabob on Steam, or /u/drkabob on Reddit, even @drkabob on
+Twitter, and finally I have a swell website http://welcometonathan.com/)
+
+If you want to know how to set the bot up, you should view the SETUP file.
+
+If you want to learn how to use the bot, you should view the USE file.
+
+The license for this code can be found in the LICENSE file.
+
+What is the Steam Group Chat Bot?
+----------------------------------
+The Steam Group Chat bot is an answer to a problem in Steam. On Steam, if a user leaves
+a group chat the user cannot rejoin the chat unless he or she is reinvited. This can be
+problematic for small groups who want to have an ongoing chat. This bot solves that
+problem.
+
+What do I get?
+--------------
+Included is the most recent (and relatively stable) source code for the bot. For a ready
+to go, just-add-water, precompiled, let's just launch this thing, version of the bot,
+look in the bin directory. It will contain the bot executable, example configuration
+files, and the required libraries.
+
+If I just want a private chat, but don't want to setup this thing, what do I do?
+---------------------------------------------------------------------------------
+I have a ready to go instance of the bot. Add this user on Steam as a friend
+(http://steamcommunity.com/id/groupchatbot) to get connected to the bot. Then, send me
+a message on Steam, Reddit, E-mail, or through the bot and I'll set up the channel for
+you. Please understand that it may take a while for me to get to your message.
+
+Thanks for looking around! If you have any questions you can get ahold of me on Steam
+(http://steamcommunity.com/id/natman97/), Reddit (http://www.reddit.com/u/drkabob/), or
+e-mail me at nathan@welcometonathan.com

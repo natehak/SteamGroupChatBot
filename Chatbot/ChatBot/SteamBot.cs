@@ -282,7 +282,7 @@ namespace GroupChatBot
 						
 						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** Official channels are: " + channellist);
 						
-					} else if (command.StartsWith("h"))
+					} else if (command.StartsWith("he"))
 					{
 						// Give help mesages
 						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** Commands are: ");
@@ -290,7 +290,8 @@ namespace GroupChatBot
 						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** /on | /off (or just /o) - Toggles between receiving messages and ignoring messages");
 						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** /status (or /s) - Gives you information about what channel you're in, and whether you are receiving messages or not.");
 						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** /list (or /l) - Lists all the official channels.");
-						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** /help (or /h) - Gives you this list of commands.");
+						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** /help - Gives you this list of commands.");
+						steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** /history i - Gives you the last i messages sent in the channel.");
 					} else if (command.StartsWith("g") && callback.Sender.ConvertToUInt64() == Convert.ToUInt64(Program.GetConfig("adminid")))
 					{
 						// Global messages
@@ -301,6 +302,24 @@ namespace GroupChatBot
 						} catch (System.ArgumentOutOfRangeException) {
 							
 						}
+					} else if (command.StartsWith ("hi"))
+					{
+						try {
+							// Get the logs...
+							char[] splitter = new char[1] { ' ' };
+							string[] args = callback.Message.Split (splitter);
+
+							string[] toSend = Program.GetHistory(Program.friends[callback.Sender].channel, Convert.ToInt32(args[1]));
+
+							foreach (string line in toSend)
+							{
+								steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** " + line);
+							}
+
+						} catch (System.IndexOutOfRangeException) {
+							steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** Error, how many messages do you want?");
+						}
+
 					}
 				} else if ( Program.friends[callback.Sender].active ) {
 

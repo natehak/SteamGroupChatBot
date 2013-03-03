@@ -69,7 +69,7 @@ namespace GroupChatBot
 				} else if (input == "quit") {
 
 					keeprunning = false;
-					foreach (SteamBot bot in bots)
+					foreach (SteamBot bot in bots.Values)
 					{
 						bot.KillBot();
 					}
@@ -87,6 +87,12 @@ namespace GroupChatBot
 				if (steamID != sender && friends[steamID].active && friends[steamID].channel == channel) {
 					friends[steamID].steamBot.steamFriends.SendChatMessage (steamID, EChatEntryType.ChatMsg, message);
 				}
+			}
+
+			// Log the message...
+			using (StreamWriter sw = File.AppendText("logs/" + channel + ".log"))
+			{
+				sw.WriteLine (message);
 			}
 		}
 
@@ -156,6 +162,7 @@ namespace GroupChatBot
 			}
 		}
 
+		// Sends a message to everyone connected to the bot
 		public static void SendGlobalMessage(string message)
 		{
 			foreach (SteamID steamID in friends.Keys)
@@ -177,6 +184,24 @@ namespace GroupChatBot
 			}
 
 			System.IO.File.WriteAllLines ("users.cfg", linesToWrite);
+		}
+
+		// Grabs logs when we want them.
+		public static string[] GetHistory(string channel, int howManyLines)
+		{
+			if (howManyLines > 21) {
+				return new string[1] { "Error, maximum allowed history is 20 lines." };
+			} else {
+				string[] lines = System.IO.File.ReadAllLines ("logs/" + channel + ".log");
+				string[] toReturn = new string[howManyLines+2];
+				toReturn[0] = "The past " + howManyLines.ToString() + " lines in " + channel;
+				toReturn[howManyLines+1] = "End of log output.";
+
+				Array.Copy(lines, lines.Length-howManyLines, toReturn, 1, howManyLines);
+
+				return toReturn;
+			}
+
 		}
 
 	}

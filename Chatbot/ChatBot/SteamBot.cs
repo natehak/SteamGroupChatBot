@@ -63,6 +63,8 @@ namespace GroupChatBot
 				// in order for the callbacks to get routed, they need to be handled by the manager
 				manager.RunWaitCallbacks( TimeSpan.FromSeconds( 1 ) );
 			}
+
+			steamClient.Disconnect ();
 		}
 
 		// Kill the bot!

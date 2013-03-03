@@ -42,11 +42,9 @@ namespace GroupChatBot
 				if (input == "addbot")
 				{
 					// Get username and password
-					Console.WriteLine ();
 					Console.Write("Username: ");
 					string username = Console.ReadLine ();
 
-					Console.WriteLine ();
 					Console.Write ("Password: ");
 					string password = Console.ReadLine ();
 
@@ -59,7 +57,6 @@ namespace GroupChatBot
 				} else if (input == "killbot")
 				{
 					// Get username to kill...
-					Console.WriteLine ();
 					Console.Write ("Username: ");
 					string username = Console.ReadLine ();
 

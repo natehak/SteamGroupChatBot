@@ -176,19 +176,23 @@ namespace GroupChatBot
 			
 			foreach ( var friend in callback.FriendList )
 			{
-				if (friend.Relationship == EFriendRelationship.Friend)
-				{
-					Program.friends[friend.SteamID].addedToList = true;
-				} else if (friend.Relationship == EFriendRelationship.RequestRecipient)
-				{
-					if (Program.friends[friend.SteamID].addedToList)
+				try {
+					if (friend.Relationship == EFriendRelationship.Friend)
 					{
-						steamFriends.IgnoreFriend(friend.SteamID);
-					} else {
-						// this user has added us, let's add him back
-						steamFriends.AddFriend(friend.SteamID);
 						Program.friends[friend.SteamID].addedToList = true;
+					} else if (friend.Relationship == EFriendRelationship.RequestRecipient)
+					{
+						if (Program.friends[friend.SteamID].addedToList)
+						{
+							steamFriends.IgnoreFriend(friend.SteamID);
+						} else {
+							// this user has added us, let's add him back
+							steamFriends.AddFriend(friend.SteamID);
+							Program.friends[friend.SteamID].addedToList = true;
+						}
 					}
+				} catch (System.Collections.Generic.KeyNotFoundException) {
+
 				}
 			}
 		}

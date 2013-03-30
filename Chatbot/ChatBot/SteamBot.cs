@@ -322,6 +322,8 @@ namespace GroupChatBot
 
 						} catch (System.IndexOutOfRangeException) {
 							steamFriends.SendChatMessage (callback.Sender, EChatEntryType.ChatMsg, "** Error, how many messages do you want?");
+						} catch (System.FormatException) {
+							steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, "** Error, invalid number.");
 						}
 
 					}

@@ -73,6 +73,12 @@ namespace GroupChatBot
 					{
 						bot.KillBot();
 					}
+				} else if (input.StartsWith ("kick "))
+				{
+					string str_target = input.Substring (5);
+					SteamID target = new SteamID(str_target);
+					friends[target].steamBot.steamFriends.RemoveFriend(target);
+					friends.Remove(target);
 				}
 
 

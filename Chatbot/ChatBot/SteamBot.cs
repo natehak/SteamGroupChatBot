@@ -331,7 +331,15 @@ namespace GroupChatBot
 
 					// If it isn't a command send a message
 					string channel = Program.friends[callback.Sender].channel;
-					Program.SendChannelMessage(steamFriends.GetFriendPersonaName(callback.Sender) + ": " + callback.Message, channel, callback.Sender);
+					string inGame = "";
+
+					Console.Write(steamFriends.GetFriendGamePlayed(callback.Sender).AppID);
+
+					if (steamFriends.GetFriendGamePlayed(callback.Sender).AppID != 0)
+					{
+						inGame = " [G] ";
+					}
+					Program.SendChannelMessage(steamFriends.GetFriendPersonaName(callback.Sender) + inGame + ": " + callback.Message, channel, callback.Sender);
 					
 				}
 			}

@@ -102,23 +102,23 @@ namespace GroupChatBot
 		// Gets called on first contact.
 		private void OnConnected( SteamClient.ConnectedCallback callback )
 		{
-			// If it can't connect abandon ship!
+			// If it can't connect, wait and reconnect
 			if ( callback.Result != EResult.OK )
 			{
 				Console.WriteLine( "Unable to connect to Steam: {0}", callback.Result );
-				
-				isRunning = false;
-				return;
-			}
+				System.Threading.Thread.Sleep (5000);
+				steamClient.Connect();
+			} else {
 
-			// Otherwise login...
-			Console.WriteLine( "Connected to Steam! Logging in '{0}'...", user );
-			
-			steamUser.LogOn( new SteamUser.LogOnDetails
-			                {
-				Username = user,
-				Password = pass,
-			} );
+				// Otherwise login...
+				Console.WriteLine( "Connected to Steam! Logging in '{0}'...", user );
+				
+				steamUser.LogOn( new SteamUser.LogOnDetails
+				                {
+					Username = user,
+					Password = pass,
+				} );
+			}
 		}
 
 		// Gets called when the bot disconnects, we immediately try reconnecting...
@@ -131,16 +131,18 @@ namespace GroupChatBot
 		// When the connect succeeds this gets called. We're going to try to login.
 		private void OnLoggedOn( SteamUser.LoggedOnCallback callback )
 		{
-			// if the login failed give up.
+			// if the login failed, wait then try again.
 			if ( callback.Result != EResult.OK )
 			{
 				Console.WriteLine( "Unable to logon to Steam: {0} / {1}", callback.Result, callback.ExtendedResult );
-				
-				isRunning = false;
-				return;
+				System.Threading.Thread.Sleep (5000);
+				steamUser.LogOn (new SteamUser.LogOnDetails {
+					Username = user,
+					Password = pass,
+				});
+			} else {
+				Console.WriteLine( "Successfully logged on!" );
 			}
-			
-			Console.WriteLine( "Successfully logged on!" );
 			
 			// at this point, we'd be able to perform actions on Steam
 		}
